@@ -1,4 +1,4 @@
-# Intro to Session 02
+# Session 02
 
 |Lecture|Slides|Code|
 |-----|-----|-----|
