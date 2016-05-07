@@ -1,1 +1,3 @@
 *.sublime-project
+.git/*
+.DS_Store
