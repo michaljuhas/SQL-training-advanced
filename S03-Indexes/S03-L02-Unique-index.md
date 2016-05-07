@@ -15,6 +15,16 @@ MySQL and Postgres allow to insert or update dataset in one single query.
 * MySQL: [INSERT ... ON DUPLICATE KEY UPDATE Syntax](http://dev.mysql.com/doc/refman/5.7/en/insert-on-duplicate.html)
 * PostgreSQL: [UPSERT](https://wiki.postgresql.org/wiki/UPSERT)
 
+```sql
+SELECT * /* Check the salary of employee with ID = 499998 */
+FROM salary 
+WHERE 1=1
+	AND employee_id = 499998
+	AND from_date = '1993-12-27'
+	AND to_date = '1994-12-27'
+;
+```
+
 MySQL:
 
 ```sql
