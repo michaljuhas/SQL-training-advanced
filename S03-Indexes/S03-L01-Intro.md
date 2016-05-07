@@ -5,22 +5,20 @@
 ALTER TABLE `salary` DROP INDEX `idx_salary_amount`;
 
 -- Select without an index takes 2-3 seconds
-SELECT
-	*
-FROM salary
+SELECT *
+FROM `sample_staff`.`salary`
 WHERE 1=1
-	AND salary_amount > 190000
-	AND from_date >= '1998-01-01'
+	AND `salary`.`salary_amount` > 190000
+	AND `salary`.`from_date` >= '1998-01-01'
 LIMIT 100
 ;
 
 -- Explain select (Add "EXPLAIN" before the query)
-EXPLAIN SELECT
-	*
-FROM salary
+EXPLAIN SELECT *
+FROM `sample_staff`.`salary`
 WHERE 1=1
-	AND salary_amount > 190000
-	AND from_date >= '1998-01-01'
+	AND `salary`.`salary_amount` > 190000
+	AND `salary`.`from_date` >= '1998-01-01'
 LIMIT 100
 ;
 

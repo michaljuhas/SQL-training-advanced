@@ -16,13 +16,13 @@ Not good (selecting all attributes from all tables):
 ```sql
 SELECT
 	*
-FROM employee
-INNER JOIN contract ON 1=1
-	AND contract.employee_id = employee.id
+FROM `sample_staff`.`employee`
+INNER JOIN `contract` ON 1=1
+	AND `contract`.`employee_id` = `employee`.`id`
 WHERE 1=1
-  AND employee.deleted_flag = 0
+  AND `employee`.`deleted_flag` = 0
 ORDER BY
-  employee.id
+  `employee`.`id`
 LIMIT 1000
 ;
 ```
@@ -31,9 +31,9 @@ A slightly better version (only attributes form table `employee` selected):
 
 ```sql
 SELECT
-	contract.*
-FROM employee
-INNER JOIN contract ON 1=1
+	`contract`.*
+FROM `sample_staff`.`employee`
+INNER JOIN `sample_staff`.`contract` ON 1=1
   ...
 ;
 ```
@@ -42,10 +42,10 @@ The best version (only attributes needed enumerated):
 
 ```sql
 SELECT
-	employee.email,
-	contract.sign_date AS contract_sign_date /* added alias */
-FROM employee
-INNER JOIN contract ON 1=1
+	`employee`.`email`,
+	`contract`.`sign_date` AS contract_sign_date /* added alias */
+FROM `sample_staff`.`employee`
+INNER JOIN `contract` ON 1=1
   ...
 ;
 ```
@@ -58,15 +58,15 @@ Not so good: A comma separated list of attributes in one line:
 
 ```sql
 SELECT
-	employee.first_name, employee.last_name, employee.email, employee.gender, CONCAT(photo.path, photo.filename) AS profile_photo
-FROM employee
-INNER JOIN photo ON photo.employee_id = employee.id
-AND photo.profile_photo_flag = 1
-	AND photo.deleted_flag = 0
+	`employee`.`first_name`, `employee`.`last_name`, `employee`.`email`, `employee`.`gender`, CONCAT(`photo`.`path`, `photo`.`filename`) AS profile_photo
+FROM `sample_staff`.`employee`
+INNER JOIN `photo` ON `photo`.`employee_id` = `employee`.`id`
+AND `photo`.`profile_photo_flag` = 1
+	AND `photo`.`deleted_flag` = 0
 WHERE 1=1
-  AND employee.deleted_flag = 0
+  AND `employee`.`deleted_flag` = 0
 ORDER BY
-  employee.id
+  `employee`.`id`
 LIMIT 1000
 ;
 ```
@@ -74,12 +74,12 @@ LIMIT 1000
 A better version (attributes split on multiple lines):
 ```sql
 SELECT
-	employee.first_name,
-	employee.last_name,
-	employee.email,
-	employee.gender,
-	CONCAT(photo.path, photo.filename) AS profile_photo
-FROM employee
+	`employee`.`first_name`,
+	`employee`.`last_name`,
+	`employee`.`email`,
+	`employee`.`gender`,
+	CONCAT(`photo`.`path`, `photo`.`filename`) AS profile_photo
+FROM `sample_staff`.`employee`
 	...
 ;
 ```
