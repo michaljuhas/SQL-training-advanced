@@ -1,4 +1,4 @@
-# Concatenated index
+# S03-L05 Concatenated index
 
 ```sql
 -- Delete indexes if there are any
