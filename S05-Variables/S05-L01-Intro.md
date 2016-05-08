@@ -28,7 +28,9 @@ DROP PROCEDURE IF EXISTS `sample_staff`.`prc_test`;
 
 DELIMITER //
 
-CREATE PROCEDURE `sample_staff`.`prc_test` (in_var INT)
+CREATE PROCEDURE `sample_staff`.`prc_test` (
+  in_var INT
+)
 BEGIN
     DECLARE p_var INT;
     SET p_var = 1;
