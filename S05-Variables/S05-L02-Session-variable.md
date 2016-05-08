@@ -10,6 +10,11 @@ SELECT @var3 := @var3 + 2;
 ```
 
 ```sql
+SET @var4 = (SELECT COUNT(*) FROM `sample_staff`.`employee`);
+SELECT @var4;
+```
+
+```sql
 SELECT
 	`date`.`date`,
 	@day_of_week := DAYOFWEEK(date.date) AS day_of_week,
