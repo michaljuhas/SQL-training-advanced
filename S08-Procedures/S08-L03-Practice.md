@@ -2,24 +2,26 @@
 
 ## Assignment
 
-Create a new view `v_average_salary` which will return average salary per month/year per department. The view should have the following columns:
+First, create a new view `v_average_salary` which will return average salary per month/year per department. The view should have the following columns:
 
 * `department_id`
 * `department_name`
 * `average_salary_amount`
 * `month_year` (i.e. '02/1985')
 
-There are (at least) 2 ways to create & query the view:
+Then create a procedure `GET_DEPARTMENT_AVERAGE_SALARY` with a similar query inside as the view, but in addition also having an input attribute `in_department_id` to restrict the query for a selected department.
 
-1. `SELECT * FROM v_average_salary WHERE department_id = 2;`
-2. `SET @department_id = 2; SELECT * FROM v_average_salary;`
+You will be able to fetch average salary for a specific department in 2 ways:
+
+1. View: `SELECT * FROM v_average_salary WHERE department_id = 2;`
+2. Procedure: `SELECT * FROM GET_DEPARTMENT_AVERAGE_SALARY(2);`
 
 Your assignment:
 
-* try both approaches
-* compare execution plan
-* compare time needed to perform both queries
-* identify which one is faster (and why?)
+* Try both approaches (create a view & procedure)
+* Compare execution plan
+* Compare time needed to perform both queries
+* Identify which one is faster (and why?)
 
 ## Guidelines
 
@@ -32,8 +34,8 @@ SELECT /* Select average salary per department */
 FROM `sample_staff`.`invoice`
 INNER JOIN `department_employee_rel` ON 1=1
 
-  /* Either comment or uncomment the following line - based on the option listed above */
---  AND `department_employee_rel`.`department_id` = @department_id
+  /* Uncomment in a procedure, keep commented in a view */
+--  AND `department_employee_rel`.`department_id` = in_department_id
 
   AND `department_employee_rel`.`employee_id` = invoice.employee_id
 	AND `invoice`.`invoiced_date` BETWEEN `department_employee_rel`.`from_date` AND IFNULL(`department_employee_rel`.`to_date`, '2002-08-01')
@@ -49,8 +51,6 @@ GROUP BY
 	CONCAT(LPAD(MONTH(invoice.invoiced_date), 2, '0'), '/', YEAR(invoice.invoiced_date))
 ```
 
-`EXPLAIN SELECT * FROM v_average_salary WHERE department_id = 2;`
-http://snpy.in/eOpW5r
-
-
-http://snpy.in/UPhmX3
+```sql
+EXPLAIN SELECT * FROM v_average_salary WHERE department_id = 2;
+```

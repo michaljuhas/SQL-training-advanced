@@ -26,4 +26,4 @@ LIMIT 100
 ALTER TABLE `salary` ADD INDEX `idx_salary_amount` (`salary_amount`);
 ```
 
-Try to run the select query again - should be executed without a few miliseconds.
+Try to run the select query again - should be executed without a few milliseconds.

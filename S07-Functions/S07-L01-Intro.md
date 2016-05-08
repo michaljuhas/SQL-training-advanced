@@ -12,9 +12,11 @@ SELECT /* Is multinight? */
 ```
 
 ```sql
+DROP FUNCTION IF EXISTS `FC_IS_MULTINIGHT`;
+
 DELIMITER //
 
-CREATE FUNCTION `fc_is_multinight`(
+CREATE FUNCTION `FC_IS_MULTINIGHT`(
 	checkin_date DATE,
 	checkout_date DATE
 ) RETURNS TINYINT(1)
@@ -27,10 +29,12 @@ END;
 //
 
 DELIMITER ;
+```
 
+```sql
 SELECT
 	@checkin_date := '2016-05-09' AS checkin_date,
 	@checkout_date := '2016-05-10' AS checkout_date,
-  fc_is_multinight(@checkin_date, @checkout_date)
+  FC_IS_MULTINIGHT(@checkin_date, @checkout_date) AS is_multinight
 ;
 ```
