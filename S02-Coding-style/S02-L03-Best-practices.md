@@ -1,5 +1,4 @@
-
-# S02/L02 - My personal best practices
+# S02-L03 My personal best practices
 
 ## Store code in a git repository
 

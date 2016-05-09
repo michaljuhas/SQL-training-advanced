@@ -1,4 +1,3 @@
-
 # S02-L02 How to write a beautiful query?
 
 Not nice, very messy and hardly maintainable:

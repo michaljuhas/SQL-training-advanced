@@ -1,5 +1,0 @@
-# Practice
-
-## Assignment
-
-## Guide

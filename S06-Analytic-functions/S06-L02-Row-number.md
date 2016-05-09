@@ -1,4 +1,4 @@
-# S08-L02 Row number
+# S06-L02 Row number
 
 See salary of an employee with employee ID = 10004.
 
