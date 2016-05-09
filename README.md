@@ -1,2 +1,1 @@
-# SQL-training-advanced
-SQL-training-advanced
+# Advanced SQL with MySQL & PostgreSQL
