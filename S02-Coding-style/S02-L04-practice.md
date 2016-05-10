@@ -2,33 +2,22 @@
 
 ## Assignment
 
-Create a view `v_user_login` which will select user's recent logins.
-
-## Guide
+Re-write and beautify this query from S01-L02.
 
 ```sql
-CREATE OR REPLACE VIEW `sample_staff`.`v_user_login` AS
-  SELECT
-    `user_login`.`id` AS `user_login_id`,
-    `user_login`.`user_id`,
-    `user`.`name` AS `user_name`,
-    `user_login`.`ip_address` AS `ip_address_integer`,
-    INET_NTOA(`user_login`.`ip_address`) AS `ip_address`,
-    `user_login`.`login_dt`
-  FROM `sample_staff`.`user_login`
-  INNER JOIN `sample_staff`.`user` ON 1=1
-    AND `user`.`id` = `user_login`.`user_id`
-  WHERE 1=1
-    AND `user_login`.`deleted_flag` = 0
-  ORDER BY
-    `user_login`.`id` DESC
-  -- LIMIT shouldn't be here, because the user_id restriction will be
-  -- outside of this view
-  ;
-```
-
-```sql
-SELECT * FROM `v_user_login`
-WHERE `v_user_login`.`user_id` = 1
-LIMIT 1;
+select
+	e.id AS employee_id, concat(e.first_name, ' ', e.last_name) AS employee_full_name, d.id AS department_id, d.name AS last_department_name
+from employee e
+inner join ( select der.employee_id, max(der.id) AS max_id
+	from department_employee_rel der
+	where der.deleted_flag = 0
+	group by der.employee_id
+) derm ON derm.employee_id = e.id
+inner join department_employee_rel der ON der.id = derm.max_id
+	and der.deleted_flag = 0
+inner join department d ON d.id = der.department_id
+	and d.deleted_flag = 0
+where e.id IN (10010, 10040, 10050, 91050, 205357)
+	and e.deleted_flag = 0
+limit 100;
 ```
