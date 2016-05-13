@@ -26,13 +26,15 @@ BEGIN
 		FETCH cursor_users INTO user_id;
 
 		IF no_more_rows THEN
-			CLOSE cursor_users;
 			LEAVE loop_users;
 		END IF;
 
 		CALL INS_USER_STAT(user_id);
 
 	END LOOP loop_users;
+
+	CLOSE cursor_users;
+	
 END//
 
 DELIMITER ;

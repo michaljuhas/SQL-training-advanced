@@ -2,9 +2,9 @@
 
 ## Assignment
 
-There is a stored function `INS_USER_LOGIN_DATA_GERERATOR` which simulates users logging to your website or mobile app and writing data to `sample_staff`.`user_login`. Your assignment will be to:
+There is a stored function `INS_USER_LOGIN_DATA_GENERATOR` which simulates users logging to your website or mobile app and writing data to `sample_staff`.`user_login`. Your assignment will be to:
 
-1. Create a new event in MySQL Event Scheduler which will run the procedure `INS_USER_LOGIN_DATA_GERERATOR` every 30 seconds
+1. Create a new event in MySQL Event Scheduler which will run the procedure `INS_USER_LOGIN_DATA_GENERATOR` every 30 seconds
 2. Create a new procedure which will delete from `sample_staff`.`user_login` data older than 10 minutes, but will keep the new data (newer than 10 minutes)
 
 ### Hints
@@ -19,14 +19,14 @@ SET GLOBAL event_scheduler = 1;
 
 ### Procedure to randomly generate user login data
 
-There should be a stored function `INS_USER_LOGIN_DATA_GERERATOR` saved in `sample_staff` database. If it's not, please run the script below to re-create it.
+There should be a stored function `INS_USER_LOGIN_DATA_GENERATOR` saved in `sample_staff` database. If it's not, please run the script below to re-create it.
 
 ```sql
-DROP PROCEDURE IF EXISTS `INS_USER_LOGIN_DATA_GERERATOR`;
+DROP PROCEDURE IF EXISTS `INS_USER_LOGIN_DATA_GENERATOR`;
 
 DELIMITER //
 
-CREATE PROCEDURE `INS_USER_LOGIN_DATA_GERERATOR`()
+CREATE PROCEDURE `INS_USER_LOGIN_DATA_GENERATOR`()
 BEGIN
 	DECLARE p_ip_address VARCHAR(20);
 	DECLARE p_user_id INT;
@@ -41,7 +41,7 @@ BEGIN
 	  	NOW() AS login_dt,
 	  	INET_ATON(`ip_address_varchar20`.`ip_address`) AS ip_address,
 	  	NOW(),
-	  	'INS_USER_LOGIN_DATA_GERERATOR' AS insert_process_code
+	  	'INS_USER_LOGIN_DATA_GENERATOR' AS insert_process_code
 	  FROM `sample_staff`.`user`
 	  INNER JOIN `sample_ip`.`ip_address_varchar20` ON 1=1
 	  	AND `sample_ip`.`ip_address_varchar20`.`id` < 100
@@ -57,7 +57,7 @@ END;
 
 DELIMITER ;
 
-CALL `INS_USER_LOGIN_DATA_GERERATOR`();
+CALL `INS_USER_LOGIN_DATA_GENERATOR`();
 ```
 
 ## Guidelines
@@ -70,6 +70,6 @@ CREATE EVENT `sample_staff`.`ev_generate_login_data`
  	STARTS NOW()
   ENDS NOW() + INTERVAL 1 HOUR
   COMMENT 'Randomly generate data to sample_staff.user_login table.'
-	DO CALL `INS_USER_LOGIN_DATA_GERERATOR`()
+	DO CALL `INS_USER_LOGIN_DATA_GENERATOR`()
 ;
 ```
