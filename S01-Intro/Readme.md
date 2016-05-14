@@ -1,8 +1,3 @@
-# Session 01
+# Session 01: Kick-off
 
-|Lecture|Slides|Code|
-|-----|-----|-----|
-|S01-L01 - X | Slides | Code |
-|S01-L02 - X | Slides | Code |
-|S01-L03 - Y | Slides | Code |
-|S01-L04 - Z | Slides | Code |
+Please see a list of files above.

@@ -1,28 +1,32 @@
-# S03-L08 Practice
+# S03-L07 Practice
 
 ## Assignment
 
-These queries run slower than 100ms. How would you make them run in less than 10ms?
+Create a new partial index on `sample_staff`.`employee`.`personal_code` with the first 2 characters only.
 
-Verify the execution plan.
+Select an employee with `personal_code` = `AA-751492` and check in execution plan which index was used. Try to use another index to verify the select would be slower or faster.
 
-```sql
-SELECT `contract`.`archive_code`
-FROM `contract`
-WHERE 1=1
-	AND `contract`.`archive_code` = 'DA970'
-	AND `contract`.`deleted_flag` = 0
-	AND `contract`.`sign_date` >= '1990-01-01'
-;
+Finally, compare the size of the 2 indexes:
 
-SELECT `contract`.`archive_code`
-FROM `contract`
-WHERE 1=1
-	AND `contract`.`archive_code` = 'DA970'
-	AND `contract`.`deleted_flag` = 0
-;
-```
+* The original `ak_employee` index
+* Your newly created index
 
 ## Guide
 
-Add one index only. It should be used in both queries.
+```sql
+-- It's good to run ANALYZE TABLE before checking index or table size
+ANALYZE TABLE `sample_staff`.`employee`;
+
+SELECT /* Select all indexes from table 'employee' and their size */
+  sum(`stat_value`) AS pages,
+  `index_name` AS index_name,
+  sum(`stat_value`) * @@innodb_page_size / 1024 / 1024 AS size_mb
+FROM `mysql`.`innodb_index_stats`
+WHERE 1=1
+  AND `table_name` = 'employee'
+  AND `database_name` = 'sample_staff'
+  AND `stat_description` = 'Number of pages in the index'
+GROUP BY
+ `index_name`
+;
+```
