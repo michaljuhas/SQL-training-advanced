@@ -69,3 +69,19 @@ CREATE TABLE `invoice` (
     )
 ;
 ```
+
+Example of `LIST PARTITION`
+
+```sql
+CREATE TABLE employee (
+    id INT NOT NULL,
+    store_id INT,
+		...
+)
+PARTITION BY LIST(store_id) (
+    PARTITION pNorth VALUES IN (3,5,6,9,17),
+    PARTITION pEast VALUES IN (1,2,10,11,19,20),
+    PARTITION pWest VALUES IN (4,12,13,14,18),
+    PARTITION pCentral VALUES IN (7,8,15,16)
+);
+```

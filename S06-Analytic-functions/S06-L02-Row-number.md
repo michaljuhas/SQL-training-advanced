@@ -80,3 +80,7 @@ WHERE 1=1
 GROUP BY
 	employee_id
 ```
+
+
+// TODO
+Use tinyint_asc to do a query like https://www.dropbox.com/s/z7cx1q40y8l1vjt/Screenshot%202016-05-16%2006.36.11.png?dl=0

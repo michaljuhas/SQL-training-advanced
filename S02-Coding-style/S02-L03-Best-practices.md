@@ -311,5 +311,3 @@ WHERE 1=1
 SELECT ip_address FROM ip_address_varchar20 WHERE id = 16;
 SELECT INET_NTOA(ip_address) FROM ip_address_int WHERE id = 16;
 ```
-
-## Index the search fields

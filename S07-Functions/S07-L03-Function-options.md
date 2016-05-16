@@ -1,4 +1,4 @@
-# S07-L03 MySQL function options
+# S07-L03 Function options
 
 ## `DETERMINISTIC` or not?
 

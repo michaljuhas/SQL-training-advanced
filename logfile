@@ -1,0 +1,144 @@
+LOG:  database system was shut down at 2016-05-08 18:27:52 ICT
+LOG:  MultiXact member wraparound protections are now enabled
+LOG:  database system is ready to accept connections
+LOG:  autovacuum launcher started
+ERROR:  relation "v" does not exist at character 15
+STATEMENT:  select * from v
+FATAL:  database "juhasm" does not exist
+ERROR:  syntax error at or near "`" at character 15
+STATEMENT:  create schema `sample`;
+ERROR:  syntax error at or near "'sample'" at character 15
+STATEMENT:  create schema 'sample';
+ERROR:  schema "sample" already exists
+STATEMENT:  create schema sample;
+ERROR:  relation "t" does not exist at character 117
+STATEMENT:  SELECT
+	  v, 
+	  ROW_NUMBER() OVER(ORDER BY v),
+	  RANK()       OVER(ORDER BY v),
+	  DENSE_RANK() OVER(ORDER BY v)
+	FROM t
+	ORDER BY 1, 2
+ERROR:  function first() does not exist at character 135
+HINT:  No function matches the given name and argument types. You might need to add explicit type casts.
+STATEMENT:  SELECT
+	  letter, 
+	  ROW_NUMBER() OVER(ORDER BY letter),
+	  RANK()       OVER(ORDER BY letter),
+	  DENSE_RANK() OVER(ORDER BY letter),
+	  FIRST() OVER(ORDER BY letter)
+	FROM sample.test
+	ORDER BY 1, 2
+	;
+ERROR:  function first(text) does not exist at character 135
+HINT:  No function matches the given name and argument types. You might need to add explicit type casts.
+STATEMENT:  SELECT
+	  letter, 
+	  ROW_NUMBER() OVER(ORDER BY letter),
+	  RANK()       OVER(ORDER BY letter),
+	  DENSE_RANK() OVER(ORDER BY letter),
+	  FIRST(letter)
+	FROM sample.test
+	ORDER BY 1, 2
+	;
+ERROR:  column "test.letter" must appear in the GROUP BY clause or be used in an aggregate function at character 10
+STATEMENT:  SELECT
+	  letter, 
+	  ROW_NUMBER() OVER(ORDER BY letter),
+	  RANK()       OVER(ORDER BY letter),
+	  DENSE_RANK() OVER(ORDER BY letter),
+	  FIRST(letter)
+	FROM sample.test
+	ORDER BY 1, 2
+	;
+ERROR:  syntax error at or near "GROUP" at character 154
+STATEMENT:  SELECT
+	  letter, 
+	  ROW_NUMBER() OVER(ORDER BY letter),
+	  RANK()       OVER(ORDER BY letter),
+	  DENSE_RANK() OVER(ORDER BY letter),
+	  FIRST(letter) OVER(GROUP BY letter ORDER BY letter)
+	FROM sample.test
+	ORDER BY 1, 2
+	;
+ERROR:  function last(text) does not exist at character 174
+HINT:  No function matches the given name and argument types. You might need to add explicit type casts.
+STATEMENT:  SELECT
+	  letter, 
+	  ROW_NUMBER() OVER(ORDER BY letter),
+	  RANK()       OVER(ORDER BY letter),
+	  DENSE_RANK() OVER(ORDER BY letter),
+	  FIRST(letter) OVER(ORDER BY letter),
+	  LAST(letter) OVER(ORDER BY letter)
+	FROM sample.test
+	ORDER BY 1, 2
+	;
+ERROR:  function last_vvalue(text) does not exist at character 165
+HINT:  No function matches the given name and argument types. You might need to add explicit type casts.
+STATEMENT:  SELECT
+	  letter, 
+	  ROW_NUMBER() OVER(ORDER BY letter),
+	  RANK()       OVER(ORDER BY letter),
+	  DENSE_RANK() OVER(ORDER BY letter),
+	  FIRST_VALUE(letter) OVER(),
+	  LAST_VVALUE(letter) OVER()
+	FROM sample.test
+	ORDER BY 1, 2
+	;
+ERROR:  window function nth_value requires an OVER clause at character 194
+STATEMENT:  SELECT
+	  letter, 
+	  ROW_NUMBER() OVER(ORDER BY letter),
+	  RANK()       OVER(ORDER BY letter),
+	  DENSE_RANK() OVER(ORDER BY letter),
+	  FIRST_VALUE(letter) OVER(),
+	  LAST_VALUE(letter) OVER(),
+	  NTH_VALUE(letter, 2)
+	FROM sample.test
+	ORDER BY 1, 2
+	;
+ERROR:  syntax error at or near "(" at character 258
+STATEMENT:  SELECT
+	  letter, 
+	  ROW_NUMBER() OVER(ORDER BY letter),
+	  RANK()       OVER(ORDER BY letter),
+	  DENSE_RANK() OVER(ORDER BY letter),
+	  FIRST_VALUE(letter) OVER(),
+	  LAST_VALUE(letter) OVER(),
+	  NTH_VALUE(letter, 3) OVER(ORDER BY letter),
+	  LAG(letter)
+	  LEAD(letter)
+	FROM sample.test
+	ORDER BY 1, 2
+	;
+ERROR:  window function lag requires an OVER clause at character 240
+STATEMENT:  SELECT
+	  letter, 
+	  ROW_NUMBER() OVER(ORDER BY letter),
+	  RANK()       OVER(ORDER BY letter),
+	  DENSE_RANK() OVER(ORDER BY letter),
+	  FIRST_VALUE(letter) OVER(),
+	  LAST_VALUE(letter) OVER(),
+	  NTH_VALUE(letter, 3) OVER(ORDER BY letter),
+	  LAG(letter),
+	  LEAD(letter)
+	FROM sample.test
+	ORDER BY 1, 2
+	;
+ERROR:  function ntile() does not exist at character 175
+HINT:  No function matches the given name and argument types. You might need to add explicit type casts.
+STATEMENT:  SELECT
+	  letter, 
+	  ROW_NUMBER() OVER(ORDER BY letter),
+	  RANK()       OVER(ORDER BY letter),
+	  DENSE_RANK() OVER(ORDER BY letter),
+	  PERCENT_RANK() OVER(ORDER BY letter),
+	  NTILE() OVER(ORDER BY letter),
+	  FIRST_VALUE(letter) OVER(),
+	  LAST_VALUE(letter) OVER(),
+	  NTH_VALUE(letter, 3) OVER(ORDER BY letter),
+	  LAG(letter) OVER(),
+	  LEAD(letter) OVER()
+	FROM sample.test
+	ORDER BY 1, 2
+	;

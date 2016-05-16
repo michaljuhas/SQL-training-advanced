@@ -2,8 +2,9 @@
 
 ## Differences between functions, procedures and views
 
+### Function
+
 ```sql
--- Function
 SELECT INET_ATON('32.12.45.193');
 SELECT INET_NTOA(537669057);
 SELECT /* From S07-L03 */
@@ -13,18 +14,19 @@ SELECT /* From S07-L03 */
 ;
 ```
 
-vs.
+### Procedure
 
 ```sql
--- Procedure
-CALL INS_USER_LOGIN(1, '32.12.45.193'); -- Insert user login (user_id=1, ip_address=32.12.45.193)
-CALL SEL_USER_LOGIN(1); -- Select user login (user_id=1)
+-- Insert user login (user_id=1, ip_address=32.12.45.193)
+CALL INS_USER_LOGIN(1, '32.12.45.193');
+
+-- Select user login (user_id=1)
+CALL SEL_USER_LOGIN(1);
 ```
 
-vs.
+### View
 
 ```sql
--- View
 SELECT * FROM `v_user_login`
 WHERE `v_user_login`.`user_id` = 1
 LIMIT 1; /* From S02-L05 */

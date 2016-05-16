@@ -9,6 +9,7 @@ Types of variables:
 ## Global
 ```sql
 -- Select a version on MySQL
+SHOW GLOBAL VARIABLES WHERE variable_name = 'version';
 SELECT @@version;
 ```
 

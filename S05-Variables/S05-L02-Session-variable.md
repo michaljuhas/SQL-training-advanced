@@ -2,11 +2,11 @@
 
 ```sql
 SET @var2 = 10;
-SELECT @var2 := @var2 + 2;
+SELECT @var2 := IFNULL(@var2, 0) + 2;
 ```
 
 ```sql
-SELECT @var3 := @var3 + 2;
+SELECT @var3 := IFNULL(@var3, 0) + 2;
 ```
 
 ```sql
@@ -55,7 +55,8 @@ SET @columns = "employee_id, salary_amount";
 SET @table_name = "salary";
 
 -- Compose the query
-SET @select_query = CONCAT("SELECT id, ", @columns, " FROM ", @table_name, " WHERE employee_id = ", @employee_id);
+SET @select_query = CONCAT("SELECT id, ", @columns, " FROM ",
+			@table_name, " WHERE employee_id = ", @employee_id);
 
 -- Prepare & execute
 PREPARE stmt FROM @select_query;

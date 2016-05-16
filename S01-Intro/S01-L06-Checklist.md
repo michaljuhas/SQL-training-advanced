@@ -3,9 +3,8 @@
 Before you proceed to next sessions & lessons, please make sure you tick all the pre-requisites.
 
 - [x] **MySQL** database installed on localhost, you can connect
-- [x] **PostgreSQL** database installed on localhost, you can connect
 - [x] Sample **data imported** for both MySQL and Postgres
-- [x] You have installed tools like **SequelPro** and **pgAdmin3** (or other preferred tools)
+- [x] You have installed tools like **SequelPro**
 - [x] You already know **SQL basics**
     - Select: COUNT, DISTINCT, LIMIT, ORDER BY, WHERE
     - Conditions: BETWEEN, LIKE, IS NULL, IN, NOT IN

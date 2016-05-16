@@ -61,9 +61,10 @@ LIMIT 100
 
 Simple rules to start with:
 
-* use inline comments
-* use tabs instead of spaces
-* use 1=1
-* split column names to new lines
-* add empty lines for complex queries
-* do not shorten table name aliases
+* Use inline comments
+* Use tabs instead of spaces
+* Use 1=1
+* Split column names to new lines
+* Add empty lines for complex queries
+* Do not shorten table name aliases
+* Use the backtick (`) before and after table & column names
