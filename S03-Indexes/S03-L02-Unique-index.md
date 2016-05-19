@@ -17,7 +17,7 @@ MySQL and Postgres allow to insert or update dataset in one single query.
 
 ```sql
 SELECT * /* Check the salary of employee with ID = 499998 */
-FROM salary 
+FROM salary
 WHERE 1=1
 	AND employee_id = 499998
 	AND from_date = '1993-12-27'
@@ -28,7 +28,7 @@ WHERE 1=1
 MySQL:
 
 ```sql
-INSERT INTO salary (employee_id, from_date, to_date, ins_dt, insert_process_code)
+INSERT INTO salary (employee_id, from_date, to_date, insert_dt, insert_process_code)
 VALUES
 (499998, '1993-12-27', '1994-12-27', NOW(), 'merge-insert')
 ON DUPLICATE KEY UPDATE

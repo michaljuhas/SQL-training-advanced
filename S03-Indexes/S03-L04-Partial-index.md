@@ -1,4 +1,4 @@
-# S03-L05 Concatenated index
+# S03-L05 Partial index
 
 ```sql
 -- Delete indexes if there are any

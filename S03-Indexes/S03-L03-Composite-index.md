@@ -1,6 +1,16 @@
 # S03-L03 Composite index
 
-// TODO
+```sql
+SELECT
+	department_employee_rel.*
+FROM `department_employee_rel`
+WHERE 1=1
+	AND `department_employee_rel`.`department_id` = 3
+	AND `department_employee_rel`.`employee_id` IN (10005, 10006, 10007)
+	AND `department_employee_rel`.`from_date` = '1989-09-12'
+	AND `department_employee_rel`.`to_date` IS NULL
+;
+```
 
 ## Partially used index
 

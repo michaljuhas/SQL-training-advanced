@@ -213,7 +213,7 @@ FROM employee
 WHERE 1=1
   AND employee.deleted_flag = 0
   AND employee.birth_date >= '1960-01-01'
-  AND employee.birth_date <= '1960-31-12'
+	AND employee.birth_date <= '1960-31-12'
 ORDER BY
   employee.birth_date
 LIMIT 1000
@@ -262,8 +262,8 @@ LIMIT 1000
 In your PHP code:
 
 ```php
-$birthDate = ... // Define
-$sql = "SELECT birth_date FROM employee WHERE birth_date = {$birthDate}";
+$todayDate = ... // Define
+$sql = "SELECT birth_date FROM employee WHERE birth_date = {$todayDate}";
 
 $result = $connection->query($sql);
 
@@ -289,7 +289,7 @@ TRUNCATE ip_address_int;
 INSERT INTO ip_address_int (id, ip_address)
 SELECT
 	id,
-	INET_ATON(ip_address_varchar255.ip_address)
+	INET_ATON(ip_address_varchar20.ip_address)
 FROM ip_address_varchar20
 ```
 
