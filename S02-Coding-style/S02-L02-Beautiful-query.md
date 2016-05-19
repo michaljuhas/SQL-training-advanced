@@ -4,7 +4,7 @@ Not nice, very messy and hardly maintainable:
 
 ```sql
 select
-	e.id AS employee_id, concat(e.first_name, ' ', e.last_name) AS employee_full_name, d.id AS department_id, d.name AS last_department_name
+	e.id, concat(e.first_name, ' ', e.last_name) AS employee_full_name, e.first_name, d.id AS department_id, d.name AS last_department_name
 from employee e
 inner join ( select der.employee_id, max(der.id) AS max_id
 	from department_employee_rel der
@@ -24,8 +24,9 @@ Much better:
 
 ```sql
 SELECT /* Select last department of employees */
-	`employee`.`id` AS employee_id,
+	`employee`.`id` AS employee_id, /* NOTE: added alias */
 	CONCAT(`employee`.`first_name`, ' ', `employee`.`last_name`) AS employee_full_name,
+	`employee`.`first_name` AS first_name,
 	`department`.`id` AS department_id,
 	`department`.`name` AS last_department_name
 
