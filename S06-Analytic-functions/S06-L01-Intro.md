@@ -4,14 +4,14 @@
   * hmmm... not many, but we can learn to simulate them *(yay!)*
   * See [User-defined functions in C/C++ to enhance MySQL](http://mysql-udf.sourceforge.net/)
 * PostgreSQL
-  * row_number()
-  * rank(), dense_rank()
-  * lag(), lead()
-  * first(), last()
+  * `ROW_NUMBER()`
+  * `RANK()`, `DENSE_RANK()`
+  * `LAG()`, `LEAD()``
+  * `FIRST_VALUE()`, `LAST_VALUE()`
 
 ```sql
 SELECT /* in PostgreSQL */
-  letter, 
+  letter,
   ROW_NUMBER() OVER(ORDER BY letter),
   RANK()       OVER(ORDER BY letter),
   DENSE_RANK() OVER(ORDER BY letter),
@@ -23,6 +23,6 @@ SELECT /* in PostgreSQL */
   LAG(letter) OVER(),
   LEAD(letter) OVER()
 FROM sample.test
-ORDER BY 1, 2
+ORDER BY letter
 ;
 ```

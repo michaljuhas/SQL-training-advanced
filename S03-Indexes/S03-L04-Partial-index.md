@@ -25,7 +25,7 @@ Now see the difference in performance - run the queries below.
 ```sql
 -- Execution time: 5 seconds
 SELECT *
-FROM `sample_ip`.`ip_address_varchar20` IGNORE INDEX (`idx_ip_address_3chars`) IGNORE INDEX (`idx_ip_address_7chars`)
+FROM `sample_ip`.`ip_address_varchar20` IGNORE INDEX (`idx_ip_address_3chars`) IGNORE INDEX (`idx_ip_address_7chars`) IGNORE INDEX (`idx_ip_address_all_chars`)
 WHERE 1=1
 	AND `ip_address_varchar20`.`ip_address` = '123.194.160.219'
 ;

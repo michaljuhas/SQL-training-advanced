@@ -7,6 +7,7 @@
 ```sql
 SELECT INET_ATON('32.12.45.193');
 SELECT INET_NTOA(537669057);
+
 SELECT /* From S07-L03 */
 	@checkin_date := '2016-05-09' AS checkin_date,
 	@checkout_date := '2016-05-10' AS checkout_date,
