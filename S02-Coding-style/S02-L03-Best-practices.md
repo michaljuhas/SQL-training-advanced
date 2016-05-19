@@ -1,12 +1,15 @@
 # S02-L03 My personal best practices
 
-## Store code in a git repository
+
+
+## 1. Store code in a git repository
 
 Always. Period.
 
 Example: [GitHub / michaljuhas / SQL-training-advanced](https://github.com/michaljuhas/SQL-training-advanced)
 
-## Do not use `select *`
+
+## 2. Do not use `select *`
 
 **Query:** Select employees' contract sign date.
 
@@ -49,7 +52,7 @@ INNER JOIN `contract` ON 1=1
 ;
 ```
 
-## Separate attributes (columns) to rows
+## 3. Separate attributes (columns) to rows
 
 **Query:** Select employees' profile photos.
 
@@ -83,7 +86,7 @@ FROM `sample_staff`.`employee`
 ;
 ```
 
-## Set naming convention and don’t allow exceptions
+## 4. Set naming convention and don’t allow exceptions
 
 **Consistency** is the key.
 
@@ -98,7 +101,7 @@ FROM `sample_staff`.`employee`
 		* suffix `_id` for `INTEGER (11)`
 		* suffix `_code` for `VARCHAR (35)`
 
-## Be descriptive, don’t use acronyms
+## 5. Be descriptive, don’t use acronyms
 
 At HotelQuickly, 3 years ago we started using acronyms such as:
 
@@ -115,7 +118,7 @@ Recommendation: be descriptive and *always use full words.* A simple rule like t
 * `category` (i.e. `hotel_category_id`)
 * `insert` (i.e. `insert_user_id`)
 
-## Use audit columns
+## 6. Use audit columns
 
 * `insert_dt` - type `DATETIME` - time when the row was inserted (use `NOW()` at the time of insert)
 * `insert_user_id` - type `INT (11)` - a user (if logged in) who inserted the row
@@ -125,7 +128,7 @@ Recommendation: be descriptive and *always use full words.* A simple rule like t
 * `update_process_code` - type `VARCHAR (255)` - a process, function or class which inserted the row
 * `deleted_flag` - type `TINYINT (4) NOT NULL DEFAULT 0` - use values `0` or `1`, nothing else
 
-## Batch delete & updates (example)
+## 7. Batch delete & updates (example)
 
 With 1+ mil. rows it will be slow (table locked, transactions piled up).
 
@@ -158,7 +161,7 @@ while (1) {
 }
 ```
 
-## Reference the owner of the object
+## 8. Reference the owner of the object
 
 Always add a table name before column name.
 
@@ -178,7 +181,7 @@ LIMIT 100
 
 Commit to git. Then decide to join another table (i.e. `contract`) and suddenly you need to rewrite half of the query because both `id` and `deleted_flag` would be in both tables... #cumbersome
 
-## Table names always singular
+## 9. Table names always singular
 
 Imagine a list of tables in one schema:
 
@@ -201,7 +204,7 @@ WHERE 1=1
 
 It can be even worse in NoSQL data storage...
 
-## WHERE 1=1 (and / or)
+## 10. WHERE 1=1 (and / or)
 
 ```sql
 SELECT
@@ -217,7 +220,7 @@ LIMIT 1000
 ;
 ```
 
-## Old vs. new JOIN style
+## 11. Old vs. new JOIN style
 
 ```sql
 SELECT
@@ -232,12 +235,13 @@ WHERE 1=1
   AND contract.deleted_flag = 0
 ```
 
-## Prefix database objects
+## 12. Prefix database objects
 
 * views with `v_`
 * functions with `fc_`
 
-## Don’t use column rows in ORDER BY
+
+## 13. Don’t use column rows in ORDER BY
 
 ```sql
 SELECT
@@ -253,7 +257,7 @@ LIMIT 1000
 ;
 ```
 
-## Use LIMIT 1 as much as possible (example)
+## 14. Use LIMIT 1 as much as possible (example)
 
 In your PHP code:
 
@@ -272,7 +276,7 @@ if ($result->num_rows > 0) {
 
 Better would be to use `LIMIT 1` in case of a large dataset.
 
-## Use correct data type, it makes a difference (example: IP address)
+## 15. Use correct data type, it makes a difference (example: IP address)
 
 From `varchar20` to `integer unsigned` (`145.54.123.90` => `2436266842`).
 
