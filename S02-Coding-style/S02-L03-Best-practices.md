@@ -26,7 +26,7 @@ LIMIT 1000
 ;
 ```
 
-A slightly better version (only attributes form table `employee` selected):
+A slightly better version (only attributes form table `contract` selected):
 
 ```sql
 SELECT
@@ -153,8 +153,8 @@ while (1) {
 			break;
 		}
 
-	// you can even pause a bit
-	sleep(10);
+	// you can even pause for a few seconds
+	sleep(5);
 }
 ```
 
