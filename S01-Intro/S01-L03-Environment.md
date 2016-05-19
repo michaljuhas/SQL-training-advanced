@@ -18,5 +18,6 @@ You should see in Terminal: `postgres (PostgreSQL) 9.5.2`
 
 On Mac, I recommend the following tools:
 
-* For MySQL [Sequel PRO](http://sequelpro.com)
+* For MySQL [SequelPRO](http://sequelpro.com)
 * For Postgres [pgAdmin3](www.pgadmin.org/download/)
+  * or [Postico](https://eggerapps.at/postico/)
