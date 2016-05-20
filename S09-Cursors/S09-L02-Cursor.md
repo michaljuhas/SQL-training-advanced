@@ -1,4 +1,4 @@
-# S09-L02 Cursors
+# S09-L02 Cursor in a procedure
 
 ```sql
 DROP PROCEDURE IF EXISTS `SAVE_ALL_USER_LOGIN_STAT`;
@@ -34,7 +34,7 @@ BEGIN
 	END LOOP loop_users;
 
 	CLOSE cursor_users;
-	
+
 END//
 
 DELIMITER ;
