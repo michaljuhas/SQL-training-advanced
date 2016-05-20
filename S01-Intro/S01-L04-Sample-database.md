@@ -2,7 +2,9 @@
 
 ## Data download
 
-Please download my sample database from GitHub's repository [michaljuhas/sample-database](https://github.com/michaljuhas/sample-database). Detailed instructions how to load data are in the [Readme.md file](https://github.com/michaljuhas/sample-database/blob/master/README.md).
+Please download my sample database from GitHub's repository [michaljuhas/sample-database](https://github.com/michaljuhas/sample-database).
+
+Detailed instructions how to load data are in the [Readme.md file](https://github.com/michaljuhas/sample-database/blob/master/README.md).
 
 ### Disclaimer
 
