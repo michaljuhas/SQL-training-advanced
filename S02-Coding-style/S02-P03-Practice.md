@@ -1,4 +1,4 @@
-# S02-L06 Practice
+# S02-P03 Practice
 
 ## Assignment
 
