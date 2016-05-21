@@ -4,7 +4,7 @@
 
 Create a function that will return distance between 2 coordinates in meters. Each coordinate is defined by `latitude` and `longitude`.
 
-Pick 2 places on [www.latlong.net](http://www.latlong.net/), get their latitude & longitude, and use your newly created function to calculate distance between the 2 places.
+Pick 2 places on [latlong.net](http://www.latlong.net/), get their latitude & longitude, and use your newly created function to calculate distance between the 2 places.
 
 ```
 Law of cosines
@@ -24,7 +24,6 @@ SPOILER: Below are the results
 ...
 
 ## Result
-
 
 Calculations: http://www.movable-type.co.uk/scripts/latlong.html
 
