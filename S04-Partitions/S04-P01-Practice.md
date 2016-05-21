@@ -11,7 +11,20 @@ Then, copy data from `invoice` to the new table and also fill in the new column 
 
 Add new `LIST` partitioning to `invoice` based on the `department_code` (see `sample_staff`.`department`.`code`).
 
-## Guide
+...
+
+...
+
+...
+
+SPOILER: Below are the results
+
+...
+
+...
+
+## Result
+
 
 Hint: To get the department join `invoice` with `device_employee_rel`, see below:
 

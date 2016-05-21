@@ -23,7 +23,20 @@ Your assignment:
 * Compare time needed to perform both queries
 * Identify which one is faster (and why?)
 
-## Guidelines
+...
+
+...
+
+...
+
+SPOILER: Below are the results
+
+...
+
+...
+
+## Result
+
 
 ```sql
 SELECT /* Select average salary per department */

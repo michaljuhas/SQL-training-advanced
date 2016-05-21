@@ -11,7 +11,20 @@ Law of cosines
 d = R ⋅ acos( sin φ1 ⋅ sin φ2 + cos φ1 ⋅ cos φ2 ⋅ cos Δλ )
 ```
 
-## Guide
+...
+
+...
+
+...
+
+SPOILER: Below are the results
+
+...
+
+...
+
+## Result
+
 
 Calculations: http://www.movable-type.co.uk/scripts/latlong.html
 

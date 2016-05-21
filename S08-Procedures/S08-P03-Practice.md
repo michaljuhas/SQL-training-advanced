@@ -11,7 +11,19 @@ Save the following data to `sample_staff`.`user_stat`:
 * `login_hour`
 * `login_count`
 
-## Guidelines
+...
+
+...
+
+...
+
+SPOILER: Below are the results
+
+...
+
+...
+
+## Result
 
 ```sql
 DROP PROCEDURE IF EXISTS `INS_USER_STAT`;

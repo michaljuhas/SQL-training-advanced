@@ -11,7 +11,20 @@ Finally, compare the size of the 2 indexes:
 * The original `ak_employee` index
 * Your newly created index
 
-## Guide
+...
+
+...
+
+...
+
+SPOILER: Below are the results
+
+...
+
+...
+
+## Result
+
 
 ```sql
 -- It's good to run ANALYZE TABLE before checking index or table size

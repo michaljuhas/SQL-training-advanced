@@ -13,7 +13,20 @@ Create a query to return average salary on `2000-01-01` per department and indic
 
 Store the company average in a session variable for easier & faster comparison.
 
-## Guidelines
+...
+
+...
+
+...
+
+SPOILER: Below are the results
+
+...
+
+...
+
+## Result
+
 
 ```sql
 SET @focus_date = '2000-01-01';

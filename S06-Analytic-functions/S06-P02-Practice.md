@@ -11,7 +11,20 @@ There are stats about user logins saved in `sample_staff`.`user_stat`. Create a 
 
 For each combination date-hour return max 3 users.
 
-## Guidelines
+...
+
+...
+
+...
+
+SPOILER: Below are the results
+
+...
+
+...
+
+## Result
+
 
 First, order dataset by `date ASC`, `hour ASC` and `login_count DESC`. Then use analytical function row number (or its equivalent in MySQL - see `S06-L02`) to rank rows. The rows with highest `login_count` should have row numbers 1, 2, 3.
 

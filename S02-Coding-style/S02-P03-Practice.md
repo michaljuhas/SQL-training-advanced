@@ -14,3 +14,17 @@ select 	of.id, of.hotel_id, of.sellings_price as price_usd, of.sellings_price as
 from  enterprise_data.offer_cleanse_date_fix of, primary_data.lst_currency lc
 where of.currency_id=1 and lc.id=1;
 ```
+
+...
+
+...
+
+...
+
+SPOILER: Below are the results
+
+...
+
+...
+
+## Result

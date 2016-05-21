@@ -60,7 +60,20 @@ DELIMITER ;
 CALL `INS_USER_LOGIN_DATA_GENERATOR`();
 ```
 
-## Guidelines
+...
+
+...
+
+...
+
+SPOILER: Below are the results
+
+...
+
+...
+
+## Result
+
 
 ```sql
 DROP EVENT IF EXISTS `sample_staff`.`ev_generate_login_data`;

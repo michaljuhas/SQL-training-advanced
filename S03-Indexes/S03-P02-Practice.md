@@ -2,7 +2,7 @@
 
 ## Assignment
 
-These queries run slower than 100ms. How would you make them run in less than 10ms?
+These queries run longer than 100ms. How would you make them run in less than 10ms?
 
 Verify the execution plan.
 
@@ -23,6 +23,18 @@ WHERE 1=1
 ;
 ```
 
-## Guide
+...
+
+...
+
+...
+
+SPOILER: Below are the results
+
+...
+
+...
+
+## Result
 
 Add one index only. It should be used in both queries.
