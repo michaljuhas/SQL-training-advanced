@@ -25,6 +25,7 @@ DELIMITER ;
 CALL INS_USER_LOGIN(1, '32.12.45.193');
 ```
 
+
 ## Select user's last login with `SEL_USER_LOGIN`
 
 ```sql

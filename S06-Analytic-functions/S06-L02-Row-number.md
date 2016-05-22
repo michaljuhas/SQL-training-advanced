@@ -2,15 +2,17 @@
 
 See salary of an employee with employee ID = 10004.
 
+http://www.postgresql.org/docs/9.4/static/functions-window.html
+
 ```sql
 SELECT
-	id,
-	employee_id,
-	salary_amount,
-	from_date,
-	to_date
-FROM salary
-WHERE employee_id = 10004
+	`id`,
+	`employee_id`,
+	`salary_amount`,
+	`from_date`,
+	`to_date`
+FROM `sample_staff`.`salary`
+WHERE `salary`.`employee_id` = 10004
 ;
 ```
 
@@ -20,25 +22,25 @@ SET @dummy_salary_amount = 0;
 SET @dummy_employee_id = 0;
 
 SELECT
-	id,
-	employee_id,
-	salary_amount,
-	from_date,
-	to_date,
-	IF(salary_amount < @dummy_salary_amount AND @dummy_salary_amount != 0, 'lower than last', 'higher') AS comparison,
-	@row_number := IF(employee_id != @dummy_employee_id, 1, @row_number + 1) AS '@row_number',
-	@dummy_salary_amount := salary_amount AS '@dummy_salary_amount',
-	@dummy_employee_id := employee_id AS '@dummy_employee_id'
+	`id`,
+	`employee_id`,
+	`salary_amount`,
+	`from_date`,
+	`to_date`,
+	IF(`salary_amount` < @dummy_salary_amount AND @dummy_salary_amount != 0, 'lower than last', 'higher') AS comparison,
+	@row_number := IF(`employee_id` != @dummy_employee_id, 1, @row_number + 1) AS '@row_number',
+	@dummy_salary_amount := `salary_amount` AS '@dummy_salary_amount',
+	@dummy_employee_id := `employee_id` AS '@dummy_employee_id'
 FROM (
 	SELECT
-		id,
-		employee_id,
-		salary_amount,
-		from_date,
-		to_date
-	FROM salary
-	WHERE salary.employee_id = 10004
-	ORDER BY salary.from_date ASC
+		`id`,
+		`employee_id`,
+		`salary_amount`,
+		`from_date`,
+		`to_date`
+	FROM `salary`
+	WHERE `salary`.`employee_id` = 10004
+	ORDER BY `salary`.`from_date` ASC
 ) xTMP
 ```
 
@@ -54,25 +56,25 @@ SELECT
 	ROUND(AVG(`@row_number`), 1) AS average_month_when_salary_decreases
 FROM (
 	SELECT
-		id,
-		employee_id,
-		salary_amount,
-		from_date,
-		to_date,
-		IF(salary_amount < @dummy_salary_amount AND @dummy_salary_amount != 0, 'lower than last', 'higher') AS comparison,
-		@row_number := IF(employee_id != @dummy_employee_id, 1, @row_number + 1) AS '@row_number',
-		@dummy_salary_amount := salary_amount AS '@dummy_salary_amount',
-		@dummy_employee_id := employee_id AS '@dummy_employee_id'
+		`id`,
+		`employee_id`,
+		`salary_amount`,
+		`from_date`,
+		`to_date`,
+		IF(`salary_amount` < @dummy_salary_amount AND @dummy_salary_amount != 0, 'lower than last', 'higher') AS comparison,
+		@row_number := IF(`employee_id` != @dummy_employee_id, 1, @row_number + 1) AS '@row_number',
+		@dummy_salary_amount := `salary_amount` AS '@dummy_salary_amount',
+		@dummy_employee_id := `employee_id` AS '@dummy_employee_id'
 	FROM (
 		SELECT
-			id,
-			employee_id,
-			salary_amount,
-			from_date,
-			to_date
-		FROM salary
-		WHERE salary.employee_id = 10004
-		ORDER BY salary.from_date ASC
+			`id`,
+			`employee_id`,
+			`salary_amount`,
+			`from_date`,
+			`to_date`
+		FROM `salary`
+		WHERE `salary`.`employee_id` = 10004
+		ORDER BY `salary`.`from_date` ASC
 	) xTMP
 ) xTMP2
 WHERE 1=1
@@ -80,7 +82,3 @@ WHERE 1=1
 GROUP BY
 	employee_id
 ```
-
-
-// TODO
-Use tinyint_asc to do a query like https://www.dropbox.com/s/z7cx1q40y8l1vjt/Screenshot%202016-05-16%2006.36.11.png?dl=0
