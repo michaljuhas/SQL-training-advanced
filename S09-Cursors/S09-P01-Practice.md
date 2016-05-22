@@ -11,19 +11,3 @@ please rewrite procedure from `S09-L02` and:
 
 In addition, after the procedure finishes inserting user stats, return the
 count of users which were affected.
-
-...
-
-...
-
-...
-
-SPOILER: Below are the results
-
-...
-
-...
-
-## Result
-
-// TODO

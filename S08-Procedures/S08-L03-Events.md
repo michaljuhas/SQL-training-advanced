@@ -8,7 +8,7 @@ Check if the Event Scheduler is turned ON:
 SHOW VARIABLES LIKE 'event_scheduler';
 ```
 
-If the variable event_scheduler=OFF, you need to activate it
+If the variable `event_scheduler=OFF`, you need to activate it.
 
 ```sql
 SET GLOBAL event_scheduler = 1;

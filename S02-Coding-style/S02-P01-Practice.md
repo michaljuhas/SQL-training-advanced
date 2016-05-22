@@ -29,17 +29,3 @@ where e.id IN (10010, 10040, 10050, 91050, 205357)
 limit 100;
 
 ```
-
-...
-
-...
-
-...
-
-SPOILER: Below are the results
-
-...
-
-...
-
-## Result

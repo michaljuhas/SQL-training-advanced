@@ -19,16 +19,16 @@ SELECT
 	`date`.`date`,
 	@day_of_week := DAYOFWEEK(date.date) AS day_of_week,
 	CASE
-		WHEN @day_of_week = 2 THEN "Thanks God It's Monday!"
+		WHEN @day_of_week = 2 /* Monday */ THEN "Thanks God It's Monday!"
 		ELSE "Good morning"
 	END AS welcome_message,
 	CASE
-		WHEN @day_of_week = 6 THEN "Have a great weekend!"
+		WHEN @day_of_week = 6 /* Friday */ THEN "Have a great weekend!"
 		ELSE "Good bye"
 	END AS good_bye_message
 FROM `sample_staff`.`date`
 WHERE 1=1
-	AND `date`.`date` BETWEEN '2016-01-01' AND '2016-01-07'
+	AND `date`.`date` BETWEEN '2016-01-01' AND '2016-01-14'
 ```
 
 Variable used in `WHERE` condition:
